@@ -13,4 +13,26 @@
 
 **github:** https://github.com/kvashennikov52
 
-### Заголовок 3
+### Часть моего кода
+
+  private void btnRestore_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(connStr.GetConn() + ";CharSet=utf8mb4"))
+                {
+                    con.Open();
+                    new MySqlCommand("SET NAMES utf8mb4;", con).ExecuteNonQuery();
+
+                    string sql = File.ReadAllText("db57_restore.sql");
+                    new MySqlCommand(sql, con).ExecuteNonQuery();
+                }
+
+                MessageBox.Show("Структура БД успешно восстановлена!", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadTables();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка при восстановлении: " + ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
