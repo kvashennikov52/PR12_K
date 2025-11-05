@@ -13,6 +13,13 @@
 
 **github:** https://github.com/kvashennikov52
 
+**Увлечения**
+|**#**|**Название**|
+|---|--------|
+| 1 | Отдых | 
+| 2 | Спорт |
+| 3 | и тд |
+
 ### Часть моего кода
 
   private void btnRestore_Click(object sender, EventArgs e)
